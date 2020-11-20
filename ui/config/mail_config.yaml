@@ -1,0 +1,11 @@
+EMAIL:
+  title: "[OMG-Stream] Automation Report"
+  message: This is an automation run result report email.Please do not reply.
+  server: mail.wicresoft.com
+  port: 25
+  From: 
+  password: 
+  To: 
+  Cc: 
+ 
+ 
