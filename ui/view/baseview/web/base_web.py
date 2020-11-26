@@ -12,9 +12,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
-from ui.lib.browser_engine import Logger, web_config_path, web_config
 
-timeout_webdriverwait = web_config['implicitly_wait']
+timeout_webdriverwait = 60
 
 class BaseWebPage(object):
 
