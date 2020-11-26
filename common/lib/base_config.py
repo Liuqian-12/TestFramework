@@ -5,9 +5,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
-COMMON_DIR = os.path.join(BASE_DIR, 'common')
-COMMON_CONFIG_DIR = os.path.join(COMMON_DIR, 'config')
-
 UI_DIR = os.path.join(BASE_DIR, 'ui')
 UI_CONFIG_DIR = os.path.join(UI_DIR, 'config')
 UI_DATABASE_DIR = os.path.join(UI_DIR, 'database')
