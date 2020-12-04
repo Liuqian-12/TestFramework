@@ -43,25 +43,28 @@ class Manage_deleted_users_business(BusinessWebPage):
 
     # click edit button
     def icon_edit(self):
+        time.sleep(2)
         edit_button = self.find_element(*self._page.edit_button)
         self.action_catena(edit_button, "单击")
 
     # click delete button
     def delete_button(self):
+        time.sleep(2)
         delete_button = self.find_element(*self._page.delete_button)
         self.action_catena(delete_button, "单击")
 
     # cancel delete
     def cancel_delete_button(self):
+        time.sleep(1)
         self.click(self._page.cancel_delete_button)
 
-    # input name --> sava
+    # input name
     def edit_user_details(self, text):
-        self.send_keys(self._page.edit_name, text)
-        time.sleep(1)
+        self.send_keys(self._page.edit_name, text)        
 
     # click save button
     def save_edit(self):
+        time.sleep(1)
         self.click(self._page.save_edit_button)
 
     # cancel edit name

@@ -35,7 +35,7 @@ class web_test_manage_delete_user(BaseWebTestCase):
         # 搜索关键字：test
         manage_del_user.search("test")
         manage_del_user.icon_edit()
-        # 验证是否在edit user details页面
+        # 验证点击edit按钮是否成功进入edit user details页面
         self.assertIn("Edit user details", manage_del_user.assert_is_edit_user_details_page(), "Edit user details, Failed!!!")
         manage_del_user.edit_user_details("test_user")
         manage_del_user.save_edit()
