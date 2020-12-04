@@ -13,17 +13,13 @@ class Manage_deleted_users_business(BusinessWebPage):
         BusinessWebPage.__init__(self=self, driver=driver)
         self._page = Page()
 
-    # def is_enabled(self, loc):
-    #     return self.find_element(*loc).is_enabled()
+    # 获取元素属性值
+    def assert_manage_del_users_model(self, text):
+        return self.find_element(*self._page.manage_deleted_users).get_attribute(text)
 
-    # def get_attribute(self, loc, text):
-    #     return self.find_element(*loc).get_attribute(text)
-
-    def text(self, loc):
-        return self.find_element(*loc).text
-
-    def assert_edit(self):
-        edit_button = self.text(self._page.edit_button)      
+    # 获取元素text值
+    def assert_is_edit_user_details_page(self):
+        return self.find_element(*self._page.edit_users_details).text
     
     # 点击settings按钮
     # def click_settings_button(self):
@@ -43,8 +39,7 @@ class Manage_deleted_users_business(BusinessWebPage):
 
     # find deleted users搜索框搜索
     def search(self, text):
-        self.send_keys(self._page.search_delete_users, text)
-        self.click(self._page.search_button)
+        self.send_keys(self._page.search_delete_users, text, need_enter=True)
 
     # click edit button
     def icon_edit(self):
@@ -63,6 +58,10 @@ class Manage_deleted_users_business(BusinessWebPage):
     # input name --> sava
     def edit_user_details(self, text):
         self.send_keys(self._page.edit_name, text)
+        time.sleep(1)
+
+    # click save button
+    def save_edit(self):
         self.click(self._page.save_edit_button)
 
     # cancel edit name

@@ -16,6 +16,9 @@ class ManageDeletedUserPage:
     save_edit_button = (By.XPATH, '//button[@class="stream-btn right-dialog-button ng-binding btn-primary"]')
     cancel_edit_button = (By.XPATH, '//button[@class="stream-btn left-dialog-button ng-binding"]')
 
+    # assert
+    edit_users_details = (By.XPATH, '//div[@class="heading ng-binding"]')
+
 
 
     
