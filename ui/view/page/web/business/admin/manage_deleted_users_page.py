@@ -6,10 +6,7 @@ class ManageDeletedUserPage:
     search_delete_users = (By.XPATH, '//input[starts-with(@id,"search")]')
     
     # 成功找到的用户
-    exist_user = (By.XPATH, '//div[@ng-transclude="item"]')
-    # 未找到的用户
-    not_exist_user = (By.XPATH, '//div[@class="items-list-info-message ng-scope"]')
-    no_deleted_users_found = (By.XPATH, '//span[text()="No deleted users found."]')
+    exist_user = (By.XPATH, '//header[@ng-transclude="header"]')
 
     edit_button = (By.XPATH, '//button[@class="edit c-action-trigger"]//*[name()="svg"]/*[name()="use"]')
     delete_button = (By.XPATH, '//button[@class="delete c-action-trigger"]//*[name()="svg"]/*[name()="use"]')

@@ -26,19 +26,25 @@ class web_test_manage_delete_user(BaseWebTestCase):
         cls.driver.get(url)
 
     # 验证：通过关键字搜索用户是否存在
-    @unittest.skip("根据关键字搜索不到用户，暂时跳过")
+    @unittest.skip("根据该关键字搜索不到用户，暂时跳过")
     def test01_search_input(self):
         manage_deleted_users = Manage_deleted_users_business(self.driver)
         manage_deleted_users.search_deleted_users("stest")
         try:
-            self.assertTrue(manage_deleted_users.get_search_input_exist_user(), "关键字搜索用户不存在！")
-        except AssertionError:
+            self.assertTrue(manage_deleted_users.get_search_input_exist_user(), "关键字搜索用户存在！") 
+        except AssertionError as e:
             print("No deleted users found.")
+            raise e
 
+    # 验证：通过关键字搜索用户是否存在
     def test02_search_input(self):
         manage_deleted_users = Manage_deleted_users_business(self.driver)
         manage_deleted_users.search_deleted_users("test")
-        self.assertTrue(manage_deleted_users.get_search_input_exist_user(), "关键字搜索用户存在！")
+        try:
+            self.assertTrue(manage_deleted_users.get_search_input_exist_user(), "关键字搜索用户存在！")  
+        except AssertionError as e:
+            print("No deleted users found.")
+            raise e
 
     # 验证edit按钮能否点击 
     def test03_edit_button(self):
@@ -58,7 +64,6 @@ class web_test_manage_delete_user(BaseWebTestCase):
     def test05_save_button(self):
         manage_deleted_users = Manage_deleted_users_business(self.driver)
         manage_deleted_users.edit_user_name("test_user")
-        print(manage_deleted_users.get_save_button())
         self.assertTrue(manage_deleted_users.get_save_button(), "save按钮可点击！")
         manage_deleted_users.click_save_button()
         self.assertEqual("Manage deleted users", manage_deleted_users.get_manage_deleted_users_model(), "点击成功")
@@ -68,7 +73,8 @@ class web_test_manage_delete_user(BaseWebTestCase):
         manage_deleted_users = Manage_deleted_users_business(self.driver)
         manage_deleted_users.click_delete_button()
         self.assertEqual("#icon_delete", manage_deleted_users.get_delete_button(), "成功点击delete按钮！")
-
+    
+    # 验证cancel按钮
     def test07_cancel_delete_button(self):
         manage_deleted_users = Manage_deleted_users_business(self.driver)
         self.assertTrue(manage_deleted_users.get_cancel_delete_button())
